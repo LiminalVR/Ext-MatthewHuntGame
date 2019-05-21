@@ -1,33 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class RingController : MonoBehaviour
-{
-    public float Lifespan;
-    public float ActivationDelay;
-    public ParticleSystem RingParticles;
-
-    // Start is called before the first frame update
-
-    void Start()
-    {
-        Invoke(nameof(Init), ActivationDelay);
-    }
-
-    private void Init()
-    {
-        var main = RingParticles.main;
-        main.startLifetime = Lifespan;
-        main.duration = Lifespan;
-
-        RingParticles.Play();
-
-        Destroy(gameObject, Lifespan + 0.1f);
-    }
-
-    private void OnDestroy()
-    {
-        RingManager.Instance.RingList.Remove(this);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1a90add5df3d8885159a5d3e24e39895d089e3788081d3ceab6849bd1146264b
+size 718
