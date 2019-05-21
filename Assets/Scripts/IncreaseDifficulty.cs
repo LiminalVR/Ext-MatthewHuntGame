@@ -1,3 +1,77 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1112bd46ac441ca8c50d2ab9ab4c346f1d3bc0c2872ab21d6ce9c43a7e54121a
-size 1611
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class IncreaseDifficulty : MonoBehaviour {
+
+	public float RingSpawnInterval;
+	public float CurrentSpawnTime = 0;
+	public float DecreaseSpawnInterval = 0;
+	public float IncreaseSpawnTimer = 20;
+	//public Quaternion PlayerPos = GameManager.Instance.Player.transform.rotation; 
+
+
+
+	// Use this for initialization
+	void Start()
+	{
+        RingManager.Instance.IncreaseRingLimit();
+
+	}
+
+	// using gizmos to draw the cube in which it will be spawning to see the area in which it can spawn
+	void OnDrawGizmos()
+	{
+
+	}
+	// Update is called once per frame
+	void Update()
+	{
+
+		CurrentSpawnTime += Time.deltaTime;
+
+		DecreaseSpawnInterval += Time.deltaTime;
+
+
+		// time checks in order to figure out if a ring should be spawning or not
+		if (CurrentSpawnTime >= RingSpawnInterval)
+		{
+			SpawnRings();
+			CurrentSpawnTime = 0;
+		}
+		if (DecreaseSpawnInterval >= IncreaseSpawnTimer)
+		{
+			IncreaseSpawnRate();
+			DecreaseSpawnInterval = 0;
+		}
+
+
+		// simple key input to allow for testing the spawns
+
+		if (GameManager.Instance.RingsAlive >= 30)
+		{
+			RingSpawnInterval = 10;
+		}
+	}
+	public void SpawnRings()
+	{
+        //GameManager.Instance.SpawnRings1();
+        RingManager.Instance.SpawnRing();
+        //GameManager.Instance.SpawnRings3();
+    }
+
+
+	// using this to control how often the rings spawn
+	public void IncreaseSpawnRate()
+	{
+		if (RingSpawnInterval > 3)
+		{
+			RingSpawnInterval -= 1;
+		}
+		else
+		{
+			RingSpawnInterval = 2;
+		}
+	}
+
+}
