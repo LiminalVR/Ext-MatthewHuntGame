@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9e2dfb74a00887a3fb56693208dfa8e1a2bfb06c96ac2bbaad905e0e49bc2df7
-size 416
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class RingCount : MonoBehaviour {
+
+    // Use this for initialization
+    void Start () {
+        this.GetComponent<Text>().text = ("" + GameManager.Instance.RingCount.ToString());
+    }
+    
+    // Update is called once per frame
+    void Update () {
+        this.GetComponent<Text>().CrossFadeAlpha(0, 1, true);
+    }
+}

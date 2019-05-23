@@ -1,3 +1,15 @@
+<<<<<<< HEAD:Assets/Textures/Gun_METRGH.tga.meta
 version https://git-lfs.github.com/spec/v1
 oid sha256:c8bef40c3f0dc57a61bee23733ab64b9c789c189887cfa14ad049179afa5319f
 size 1935
+=======
+fileFormatVersion: 2
+guid: 09984b160a429ad429b403728484664a
+folderAsset: yes
+timeCreated: 1458860823
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> develop:Assets/Factory/models/Materials/MetalTile.meta

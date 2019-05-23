@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8e0544f0c279df40041f473b2f85672a3873cc7b76698dba73da30944a486882
-size 593
+﻿using UnityEngine;
+
+public class Particle : MonoBehaviour
+{
+
+    public GameObject obj2;
+    public float Speed;
+    // Use this for initialization
+    void Start()
+    {
+        obj2 = GameObject.Find("Builduplocation");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    void FixedUpdate()
+    {
+        if (obj2 == null)
+        {
+            Destroy(gameObject); 
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, obj2.transform.position, Speed * Time.deltaTime);
+        }
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+}
