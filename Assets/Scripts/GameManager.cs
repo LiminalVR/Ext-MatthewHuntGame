@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Liminal.Core.Fader;
+using Liminal.SDK.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +13,6 @@ public class GameManager : MonoBehaviour
     public float RingCount;
     public float RingCombo;
     public int RingsAlive;
-    public List<GameObject> _RingList = new List<GameObject>();
     public float RingRadious;
     public Vector3 Size;
     public Vector3 Center;
@@ -49,7 +50,11 @@ public class GameManager : MonoBehaviour
     public GameObject ArrowTwo;
     public bool IsGameOver;
     public bool IncreasedDifficulty;
-    // Use this for initialization
+    [Space]
+    public float MaxGameTime;
+    
+    private Coroutine GameTimeRoutine;
+
     void Start()
     {
         Instance = this;
@@ -57,37 +62,38 @@ public class GameManager : MonoBehaviour
         QuitTime = 11f;
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator GameTimer()
     {
-        GlobalTimer += Time.deltaTime;
+        while (GlobalTimer < MaxGameTime)
+        {
+            GlobalTimer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
 
+        QuitGame();
     }
+
     public void RingCountUP()
     {
         RingCount++;
-        if (RingCount == 30)
-        {
-            FireBurst1.SetActive(true);
-            return;
-        }
-        if (RingCount == 60)
-        {
-            FireBurst2.SetActive(true);
-            return;
-        }
-        if (RingCount == 90)
-        {
-            FireBurst3.SetActive(true);
-            return;
-        }
-        if (RingCount == 100)
-        {
-            FireBurst4.SetActive(true);
-            return;
-        }
 
+        switch (RingCount)
+        {
+            case 30:
+                FireBurst1.SetActive(true);
+                return;
+            case 60:
+                FireBurst2.SetActive(true);
+                return;
+            case 90:
+                FireBurst3.SetActive(true);
+                return;
+            case 100:
+                FireBurst4.SetActive(true);
+                return;
+        }
     }
+
     public void Ringcombo()
     {
         RingCombo++;
@@ -97,6 +103,7 @@ public class GameManager : MonoBehaviour
             HighestCombo = RingCombo;
         }
     }
+
     public void StartGame()
     {
         if (IsGameOver == false)
@@ -105,10 +112,10 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             HasGameStarted = true;
             PanelGroup2.GetComponent<QuitUIFade>().FadeOut();
+            GameTimeRoutine = StartCoroutine(GameTimer());
         }
-
-
     }
+
     public void PauseGame()
     {
         if (IsGameOver == false)
@@ -117,38 +124,8 @@ public class GameManager : MonoBehaviour
             GameExperience.SetActive(false);
 
         }
-
-
     }
 
-    public void SpawnRings1()
-    {
-
-
-        RingPos1 = Center + new Vector3(UnityEngine.Random.Range(-Size.x / 2, Size.x / 2), UnityEngine.Random.Range(-Size.y / 2, Size.y / 2), UnityEngine.Random.Range(-Size.z / 2, Size.z / 2));
-
-        GameObject NewRings = (GameObject)Instantiate(RingPrefab, RingPos1, Quaternion.identity);
-        _RingList.Add(NewRings);
-        RingsAlive++;
-    }
-
-    public void SpawnRings2()
-    {
-
-        RingPos2 = Center2 + new Vector3(UnityEngine.Random.Range(-Size2.x / 2, Size2.x / 2), UnityEngine.Random.Range(-Size2.y / 2, Size2.y / 2), UnityEngine.Random.Range(-Size2.z / 2, Size2.z / 2));
-        GameObject NewRings = (GameObject)Instantiate(RingPrefab, RingPos2, Quaternion.identity);
-        _RingList.Add(NewRings);
-        RingsAlive++;
-    }
-
-    public void SpawnRings3()
-    {
-
-        RingPos3 = Center3 + new Vector3(UnityEngine.Random.Range(-Size3.x / 2, Size3.x / 2), UnityEngine.Random.Range(-Size3.y / 2, Size3.y / 2), UnityEngine.Random.Range(-Size3.z / 2, Size3.z / 2));
-        GameObject NewRings = (GameObject)Instantiate(RingPrefab, RingPos3, Quaternion.identity);
-        _RingList.Add(NewRings);
-        RingsAlive++;
-    }
     public void IncreaseDifficulty()
     {
         if (IsGameOver == false)
@@ -157,14 +134,15 @@ public class GameManager : MonoBehaviour
             Spawner_active2.SetActive(true);
             IncreasedDifficulty = true;
         }
-
-
-
     }
-
 
     public void EndExperience()
     {
+        if (GameTimeRoutine != null)
+        {
+            StopCoroutine(GameTimeRoutine);
+        }
+
         StartCoroutine(EndRoutine());
     }
 
@@ -190,15 +168,27 @@ public class GameManager : MonoBehaviour
         ArrowOne.SetActive(false);
         ArrowTwo.SetActive(false);
         IsGameOver = true;
-
     }
 
-    public void QuiteGame()
+    public void QuitGame()
     {
-        Application.Quit();
+        if (GameTimeRoutine != null)
+        {
+            StopCoroutine(GameTimeRoutine);
+        }
 
-
+        StartCoroutine(ExitCoro());
     }
+
+    private IEnumerator ExitCoro()
+    {
+        ScreenFader.Instance.FadeToBlack(2);
+
+        yield return new WaitForSeconds(2.5f);
+
+        ExperienceApp.End();
+    }
+
     public void TurnoffOBJS()
     {
         GameObject AllGameOBJ = GameObject.Find("GameObjects");
@@ -206,9 +196,5 @@ public class GameManager : MonoBehaviour
         {
             AllGameOBJ.SetActive(false);
         }
-
-
     }
-
-
 }
