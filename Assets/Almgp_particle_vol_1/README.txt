@@ -20,7 +20,7 @@ shaders:
 
  Almgp/vfx1/mesh_dissolve_particel  - shader for explosion, dissolve include
 
-	parameters:
+    parameters:
 
  Freshnel color - rimlight in side color
  Gradient - gradient for mapping by mask
@@ -34,11 +34,11 @@ shaders:
 
  Almgp/vfx1/face_power_particle  - freshnel emmision shader for mesh particle
 
-	parameters: 
+    parameters: 
 
- 	  color - rimlight in side color
-	  exp  - freshnel exponent
-	  emmis_power - emission power
+       color - rimlight in side color
+      exp  - freshnel exponent
+      emmis_power - emission power
 
 
 
@@ -47,11 +47,11 @@ shaders:
 
  Almgp/vfx1/emmision_particle  - non transparent emmision shader for mesh particle
 
-	parameters: 
+    parameters: 
 
- 	  color - color
-	  MainTex - main texture	  
-	  emmis_power - emission power
+       color - color
+      MainTex - main texture      
+      emmis_power - emission power
 
 
 
@@ -60,8 +60,8 @@ shaders:
 
  Almgp/vfx1/multypower_particle  -additive emmision shader large emmision in bloom ( need use HDR in main camera + bloom)
 
-	parameters: 
+    parameters: 
 
- 	  color - color
-	  MainTex - main texture	  
-	  emmis_power - emission power
+       color - color
+      MainTex - main texture      
+      emmis_power - emission power
