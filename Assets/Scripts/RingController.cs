@@ -8,8 +8,6 @@ public class RingController : MonoBehaviour
     public float ActivationDelay;
     public ParticleSystem RingParticles;
 
-    // Start is called before the first frame update
-
     void Start()
     {
         Invoke(nameof(Init), ActivationDelay);

@@ -8,15 +8,11 @@ using Random = UnityEngine.Random;
 public class RingManager : MonoBehaviour
 {
     public static RingManager Instance;
-
     public List<RingController> RingList = new List<RingController>();
     public List<Transform> SpawnPoints;
-
     public RingController RingPrefab;
-
     public Vector3 MinSpawnDivergence;
     public Vector3 MaxSpawnDivergence;
-
     public int MaxRings;
 
     private void Start()
@@ -32,7 +28,6 @@ public class RingManager : MonoBehaviour
         }
 
         var targetPoint = SpawnPoints[Random.Range(0, SpawnPoints.Count)];
-
         var spawnPos = GetSpawnPos(targetPoint);
 
         var ring = Instantiate(RingPrefab, spawnPos, Quaternion.identity);
@@ -45,7 +40,6 @@ public class RingManager : MonoBehaviour
         var xPosDelta = Random.Range(MinSpawnDivergence.x, MaxSpawnDivergence.x);
         var yPosDelta = Random.Range(MinSpawnDivergence.y, MaxSpawnDivergence.y);
         var zPosDelta = Random.Range(MinSpawnDivergence.z, MaxSpawnDivergence.z);
-
         var position = targetPoint.transform.position + new Vector3(xPosDelta, yPosDelta, zPosDelta);
 
         return position;

@@ -50,13 +50,11 @@ public class GameManager : MonoBehaviour
     public GameObject ArrowTwo;
     public bool IsGameOver;
     public bool IncreasedDifficulty;
-
     [Space]
     public float MaxGameTime;
     
     private Coroutine GameTimeRoutine;
 
-    // Use this for initialization
     void Start()
     {
         Instance = this;
@@ -74,7 +72,6 @@ public class GameManager : MonoBehaviour
 
         QuitGame();
     }
-
 
     public void RingCountUP()
     {
@@ -99,8 +96,8 @@ public class GameManager : MonoBehaviour
             FireBurst4.SetActive(true);
             return;
         }
-
     }
+
     public void Ringcombo()
     {
         RingCombo++;
@@ -110,6 +107,7 @@ public class GameManager : MonoBehaviour
             HighestCombo = RingCombo;
         }
     }
+
     public void StartGame()
     {
         if (IsGameOver == false)
@@ -120,9 +118,8 @@ public class GameManager : MonoBehaviour
             PanelGroup2.GetComponent<QuitUIFade>().FadeOut();
             GameTimeRoutine = StartCoroutine(GameTimer());
         }
-
-
     }
+
     public void PauseGame()
     {
         if (IsGameOver == false)
@@ -141,11 +138,7 @@ public class GameManager : MonoBehaviour
             Spawner_active2.SetActive(true);
             IncreasedDifficulty = true;
         }
-
-
-
     }
-
 
     public void EndExperience()
     {
@@ -179,7 +172,6 @@ public class GameManager : MonoBehaviour
         ArrowOne.SetActive(false);
         ArrowTwo.SetActive(false);
         IsGameOver = true;
-
     }
 
     public void QuitGame()
@@ -208,9 +200,5 @@ public class GameManager : MonoBehaviour
         {
             AllGameOBJ.SetActive(false);
         }
-
-
     }
-
-
 }

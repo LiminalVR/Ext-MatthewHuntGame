@@ -7,7 +7,6 @@ public class Occilation : MonoBehaviour
     public void Start()
     {
         StartCoroutine(Oscillate(OccilationFuntion.Sine, 1.5f));
-        
     }
 
     private IEnumerator Oscillate(OccilationFuntion method, float scalar)
@@ -25,11 +24,4 @@ public class Occilation : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-
-
-
-
-
-
-
 }

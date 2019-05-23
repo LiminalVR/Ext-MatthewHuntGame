@@ -9,7 +9,7 @@ public class CollisonDetection : MonoBehaviour
     private float ScalingX;
     private float ScalingY;
     private float ScalingZ;
-    // Use this for initialization
+
     void Start()
     {
         var temp = GameObject.Find("Builduplocation");
@@ -22,7 +22,6 @@ public class CollisonDetection : MonoBehaviour
         ScalingZ = 0.015f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.Instance.IncreasedDifficulty == true && ScalingTransform != null) 
@@ -32,6 +31,7 @@ public class CollisonDetection : MonoBehaviour
             ScalingZ = 0.006f;
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<Ring>()==true)
