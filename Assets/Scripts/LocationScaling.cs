@@ -10,7 +10,6 @@ public class LocationScaling : MonoBehaviour
     private float ScalingY;
     private float ScalingZ;
 
-    // Use this for initialization
     void Start()
     {
         OldRingCount = GameManager.Instance.RingCount;
@@ -20,7 +19,6 @@ public class LocationScaling : MonoBehaviour
         ScalingZ = 0.03f;
     }
 
-    // Update is called once per frame
     void IncreaseSize()
     {
         var newScale = transform.localScale + new Vector3(ScalingX, ScalingY, ScalingZ);
@@ -29,42 +27,35 @@ public class LocationScaling : MonoBehaviour
         newScale.z = newScale.x;
         transform.localScale = newScale;
 
-
-
         if (transform.localScale.x >= 3.5 && transform.localScale.y >= 3.5f && transform.localScale.z >= 3.5f)
         {
-
             StartCoroutine("MoveLocation");
             GameManager.Instance.GlobaleSpawners.SetActive(false);
             EndGame();
             OverheadCloser.SetActive(true);
-
         }
     }
+
     void EndGame()
     {
         var AllRings = FindObjectsOfType<Ring>();
 
         foreach (var item in AllRings)
         {
-
-            //destry here. yayayay
             Destroy(item.gameObject);
-
         }
     }
 
     void Update()
     {
-
         if (GameManager.Instance.IncreasedDifficulty == true)
         {
             ScalingX = 0.018f;
             ScalingY = 0.018f;
             ScalingZ = 0.018f;
         }
-
     }
+
     IEnumerator MoveLocation()
     {
         while (true)
@@ -89,7 +80,6 @@ public class LocationScaling : MonoBehaviour
                 Destroy(Explode, 3);
                 yield return null;
             }
-
         }
     }
 }
