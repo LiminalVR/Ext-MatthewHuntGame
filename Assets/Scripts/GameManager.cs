@@ -76,113 +76,113 @@ public class GameManager : MonoBehaviour
     }
 
 
-	public void RingCountUP()
-	{
-		RingCount++;
-		if (RingCount == 30)
-		{
-			FireBurst1.SetActive(true);
-			return;
-		}
-		if (RingCount == 60)
-		{
-			FireBurst2.SetActive(true);
-			return;
-		}
-		if (RingCount == 90)
-		{
-			FireBurst3.SetActive(true);
-			return;
-		}
-		if (RingCount == 100)
-		{
-			FireBurst4.SetActive(true);
-			return;
-		}
+    public void RingCountUP()
+    {
+        RingCount++;
+        if (RingCount == 30)
+        {
+            FireBurst1.SetActive(true);
+            return;
+        }
+        if (RingCount == 60)
+        {
+            FireBurst2.SetActive(true);
+            return;
+        }
+        if (RingCount == 90)
+        {
+            FireBurst3.SetActive(true);
+            return;
+        }
+        if (RingCount == 100)
+        {
+            FireBurst4.SetActive(true);
+            return;
+        }
 
-	}
-	public void Ringcombo()
-	{
-		RingCombo++;
+    }
+    public void Ringcombo()
+    {
+        RingCombo++;
 
-		if (RingCombo >= HighestCombo)
-		{
-			HighestCombo = RingCombo;
-		}
-	}
-	public void StartGame()
-	{
-		if (IsGameOver == false)
-		{
-			GameExperience.SetActive(true);
-			Time.timeScale = 1f;
-			HasGameStarted = true;
-			PanelGroup2.GetComponent<QuitUIFade>().FadeOut();
+        if (RingCombo >= HighestCombo)
+        {
+            HighestCombo = RingCombo;
+        }
+    }
+    public void StartGame()
+    {
+        if (IsGameOver == false)
+        {
+            GameExperience.SetActive(true);
+            Time.timeScale = 1f;
+            HasGameStarted = true;
+            PanelGroup2.GetComponent<QuitUIFade>().FadeOut();
             GameTimeRoutine = StartCoroutine(GameTimer());
         }
 
 
-	}
-	public void PauseGame()
-	{
-		if (IsGameOver == false)
-		{
-			Time.timeScale = 0f;
-			GameExperience.SetActive(false);
+    }
+    public void PauseGame()
+    {
+        if (IsGameOver == false)
+        {
+            Time.timeScale = 0f;
+            GameExperience.SetActive(false);
 
-		}
+        }
     }
 
     public void IncreaseDifficulty()
-	{
-		if (IsGameOver == false)
-		{
-			Spawner_active1.SetActive(true);
-			Spawner_active2.SetActive(true);
-			IncreasedDifficulty = true;
-		}
+    {
+        if (IsGameOver == false)
+        {
+            Spawner_active1.SetActive(true);
+            Spawner_active2.SetActive(true);
+            IncreasedDifficulty = true;
+        }
 
 
 
-	}
+    }
 
 
-	public void EndExperience()
-	{
+    public void EndExperience()
+    {
         if (GameTimeRoutine != null)
         {
             StopCoroutine(GameTimeRoutine);
         }
 
         StartCoroutine(EndRoutine());
-	}
+    }
 
-	private IEnumerator EndRoutine()
-	{
-		yield return new WaitForSeconds(QuitTime);
+    private IEnumerator EndRoutine()
+    {
+        yield return new WaitForSeconds(QuitTime);
 
-		this.GetComponent<QuitUIFade>().FadeIn();
+        this.GetComponent<QuitUIFade>().FadeIn();
 
-		yield return new WaitForSeconds(1);
-		Time.timeScale = 0;
-		GameObject AudioSource = GameObject.Find("Audio Source");
-		AudioSource.GetComponent<AudioSource>().Pause();
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 0;
+        GameObject AudioSource = GameObject.Find("Audio Source");
+        AudioSource.GetComponent<AudioSource>().Pause();
 
-		Accuracy = ((RingCount / TimesFired) * 100);
-		AccuracyText.text = ("Accuracy: " + Accuracy.ToString("f2") + "%");
-		GlobalTimerText2.text = ("Timer: " + GlobalTimer.ToString("F2"));
-		HighestComboText.text = ("Highest Combo: " + HighestCombo.ToString());
-		RingsHit.text = ("Rings Hit: " + RingCount.ToString());
-		ShotCount.text = ("Times Fired: " + TimesFired.ToString());
-		TurnoffOBJS();
+        Accuracy = ((RingCount / TimesFired) * 100);
+        AccuracyText.text = ("Accuracy: " + Accuracy.ToString("f2") + "%");
+        GlobalTimerText2.text = ("Timer: " + GlobalTimer.ToString("F2"));
+        HighestComboText.text = ("Highest Combo: " + HighestCombo.ToString());
+        RingsHit.text = ("Rings Hit: " + RingCount.ToString());
+        ShotCount.text = ("Times Fired: " + TimesFired.ToString());
+        TurnoffOBJS();
 
-		ArrowOne.SetActive(false);
-		ArrowTwo.SetActive(false);
-		IsGameOver = true;
+        ArrowOne.SetActive(false);
+        ArrowTwo.SetActive(false);
+        IsGameOver = true;
 
-	}
+    }
 
-	public void QuitGame()
+    public void QuitGame()
     {
         if (GameTimeRoutine != null)
         {
@@ -201,16 +201,16 @@ public class GameManager : MonoBehaviour
         ExperienceApp.End();
     }
 
-	public void TurnoffOBJS()
-	{
-		GameObject AllGameOBJ = GameObject.Find("GameObjects");
-		if (AllGameOBJ != null)
-		{
-			AllGameOBJ.SetActive(false);
-		}
+    public void TurnoffOBJS()
+    {
+        GameObject AllGameOBJ = GameObject.Find("GameObjects");
+        if (AllGameOBJ != null)
+        {
+            AllGameOBJ.SetActive(false);
+        }
 
 
-	}
+    }
 
 
 }
