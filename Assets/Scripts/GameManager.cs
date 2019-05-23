@@ -76,25 +76,21 @@ public class GameManager : MonoBehaviour
     public void RingCountUP()
     {
         RingCount++;
-        if (RingCount == 30)
+
+        switch (RingCount)
         {
-            FireBurst1.SetActive(true);
-            return;
-        }
-        if (RingCount == 60)
-        {
-            FireBurst2.SetActive(true);
-            return;
-        }
-        if (RingCount == 90)
-        {
-            FireBurst3.SetActive(true);
-            return;
-        }
-        if (RingCount == 100)
-        {
-            FireBurst4.SetActive(true);
-            return;
+            case 30:
+                FireBurst1.SetActive(true);
+                return;
+            case 60:
+                FireBurst2.SetActive(true);
+                return;
+            case 90:
+                FireBurst3.SetActive(true);
+                return;
+            case 100:
+                FireBurst4.SetActive(true);
+                return;
         }
     }
 
