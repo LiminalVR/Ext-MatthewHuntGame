@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88c53f108e26ef691be44f96572734a1d2a9c074cc93b4ab3cd5653b6588c649
-size 524
+fileFormatVersion: 2
+guid: 8cfd7688f4a038249b1765a99da2c0bd
+timeCreated: 1550008920
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Beyond Wonderland
+  fontNames:
+  - Beyond Wonderland
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
