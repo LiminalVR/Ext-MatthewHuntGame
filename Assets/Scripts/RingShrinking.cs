@@ -15,28 +15,6 @@ public class RingShrinking : MonoBehaviour
     public bool HasBeenHit = false;
     public GameObject RingcountCanvas;
 
-    IEnumerator scale()
-    {
-        MinScale = transform.localScale;
-        while (Reapeatable)
-        {
-            yield return Repeatlerp(MinScale, maxscale, duration);
-            yield return Repeatlerp(maxscale, MinScale, duration);
-        }
-    }
-
-    public IEnumerator Repeatlerp(Vector3 a, Vector3 b, float time)
-    {
-        float i = 0.0f;
-        float rate = (1.0f / time) * speed;
-        while (i < 1.0f)
-        {
-            i += Time.deltaTime * rate;
-            transform.localScale = Vector3.Lerp(a, b, i);
-            yield return null;
-        }
-    }
-    
     void Update()
     {
         Pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -49,8 +27,6 @@ public class RingShrinking : MonoBehaviour
             this.GetComponent<SphereCollider>().enabled = false;
             Instantiate(DyingPrefab, Pos, Quaternion.identity);
             Reapeatable = true;
-
-            StartCoroutine("scale");
 
             particleSystem.GetComponent<ParticleSystem>().Play();
             GameManager.Instance.RingCountUP();
