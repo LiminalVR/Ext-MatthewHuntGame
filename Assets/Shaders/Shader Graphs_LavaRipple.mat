@@ -1,3 +1,80 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f86f3d9c0b158d57b0710826f73286f0c3b8cccd5021568b3597c97da5ba642
-size 2771
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_LavaRipple
+  m_Shader: {fileID: 4800000, guid: 555cd1be04d145f4ebbe85fdfa1bea7b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_6A3E493E:
+        m_Texture: {fileID: 2800000, guid: 5336185444ac65146986ec3205167bfc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6ED26670:
+        m_Texture: {fileID: 2800000, guid: f708cbc1be79841418b50ef0f6a52187, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_79F2420C:
+        m_Texture: {fileID: 2800000, guid: 5336185444ac65146986ec3205167bfc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7CA68E42:
+        m_Texture: {fileID: 2800000, guid: f708cbc1be79841418b50ef0f6a52187, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_B99998BB:
+        m_Texture: {fileID: 2800000, guid: 55f818b9c6b534b45acba463f531b064, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D01D263A:
+        m_Texture: {fileID: 2800000, guid: 55f818b9c6b534b45acba463f531b064, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E94A54F4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5336185444ac65146986ec3205167bfc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: bf5691b5fdf83c547af07b110f76e840, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_744D73A0_Out:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_215D64E: 0.0916
+    - Vector1_2BBAE70B: -0.75
+    - Vector1_5F1B4C8E: 9
+    - Vector1_714B6CDF: 0.6
+    - Vector1_7539E476: 0.1
+    - Vector1_79338EF1: 2.36
+    - Vector1_7F5F2610: 5.42
+    - Vector1_915B37DD: 1
+    - Vector1_BAFCF4BA: 0.391
+    - Vector1_CC892112: 189.7
+    - _DistortStrength: 0
+    - _MainTexSpeed: 0
+    - _PanSpeed: 0
+    m_Colors:
+    - Color_377A2027: {r: 1, g: 0, b: 0, a: 0}
+    - Color_4B06B56D: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
+    - Vector2_1B5688AD: {r: 6, g: 8, b: 0, a: 0}
+    - Vector2_E94DED0C: {r: 0, g: 0, b: 0, a: 0}
