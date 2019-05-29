@@ -14,6 +14,7 @@ public class RingShrinking : MonoBehaviour
     public Vector3 Pos;
     public bool HasBeenHit = false;
     public GameObject RingcountCanvas;
+    public ParticleSystem RingParticles;
 
     void Update()
     {
@@ -35,6 +36,8 @@ public class RingShrinking : MonoBehaviour
 
             gameObject.GetComponent<AudioSource>().Play();
             RingcountCanvas.SetActive(true);
+
+            RingParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
             Destroy(prefabeparent, 2);
 
