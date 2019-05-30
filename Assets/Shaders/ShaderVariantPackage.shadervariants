@@ -1,0 +1,254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShaderVariantPackage
+  m_Shaders:
+  - first: {fileID: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10512, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants: []
+  - first: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15105, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: abb960f08be35fe448836a8f8708bfb4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: f7da7b7a8dc08d44cb9b992b28c8644b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 50b406436c6214c49aaaa6011b71dde8, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5caf62d8bd7c44596ace77ef9eb8ea31, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+    second:
+      variants:
+      - keywords: _ALPHATEST_ON _COLOROVERLAY_ON
+        passType: 0
+      - keywords: _ALPHABLEND_ON _COLOROVERLAY_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: INSTANCING_ON _ALPHATEST_ON
+        passType: 8
+      - keywords: 
+        passType: 11
+      - keywords: _METALLICSPECGLOSSMAP
+        passType: 11
+      - keywords: _EMISSION _METALLICSPECGLOSSMAP
+        passType: 11
+      - keywords: INSTANCING_ON
+        passType: 13
+      - keywords: _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _NORMALMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP
+        passType: 13
+      - keywords: _EMISSION _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: INSTANCING_ON _EMISSION _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _EMISSION _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: _ALPHATEST_ON _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ALPHATEST_ON _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _EMISSION _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ALPHATEST_ON _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _ALPHATEST_ON _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _ALPHATEST_ON _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _EMISSION _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _EMISSION _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED INSTANCING_ON LIGHTMAP_ON _ADDITIONAL_LIGHTS
+          _ALPHATEST_ON _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+  - first: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 555cd1be04d145f4ebbe85fdfa1bea7b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 11
+      - keywords: 
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED LIGHTMAP_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED LIGHTMAP_ON _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED LIGHTMAP_ON _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13

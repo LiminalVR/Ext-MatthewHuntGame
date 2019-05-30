@@ -4950,6 +4950,7 @@ MonoBehaviour:
   Pos: {x: 0, y: 0, z: 0}
   HasBeenHit: 0
   RingcountCanvas: {fileID: 1725768849088874}
+  RingParticles: {fileID: 198395200093332692}
 --- !u!135 &135613298180188810
 SphereCollider:
   m_ObjectHideFlags: 0

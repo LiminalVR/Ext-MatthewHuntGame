@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        if (IsGameOver)
+            yield break;
+
         QuitGame();
     }
 

@@ -45,14 +45,7 @@ public class CollisonDetection : MonoBehaviour
         else
         {
             GameManager.Instance.RingCombo = 0;
-            var newScale = ScalingTransform.localScale - new Vector3(ScalingX, ScalingY, ScalingZ);
-            newScale.x = Mathf.Clamp(newScale.x, 0, 3.5f);
-            newScale.y = newScale.x;
-            newScale.z = newScale.x;
-
-            ScalingTransform.localScale = newScale;
             ScalingTransform.gameObject.GetComponent<LocationScaling>().OldRingCount = GameManager.Instance.RingCount;
-
         }    
     }
 }
