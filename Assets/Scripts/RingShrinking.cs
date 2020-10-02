@@ -32,6 +32,7 @@ public class RingShrinking : MonoBehaviour
         while (i < 1.0f)
         {
             i += Time.deltaTime * rate;
+
             transform.localScale = Vector3.Lerp(a, b, i);
             yield return null;
         }
