@@ -70,9 +70,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        if (IsGameOver)
-            yield break;
-
         QuitGame();
     }
 
@@ -180,17 +177,27 @@ public class GameManager : MonoBehaviour
             StopCoroutine(GameTimeRoutine);
         }
 
-        StartCoroutine(ExitCoro());
+        StartCoroutine(routine(2f));
+
+        IEnumerator routine(float fadeOutTime)
+        {
+            var elapsedTime = 0f;
+            var startingVolume = AudioListener.volume;
+
+            ScreenFader.Instance.FadeToBlack(fadeOutTime);
+
+            while (elapsedTime < fadeOutTime)
+            {
+                elapsedTime += Time.deltaTime;
+                AudioListener.volume = Mathf.Lerp(startingVolume, 0f, elapsedTime / fadeOutTime);
+                yield return new WaitForEndOfFrame();
+            }
+
+            ExperienceApp.End();
+        }
     }
 
-    private IEnumerator ExitCoro()
-    {
-        ScreenFader.Instance.FadeToBlack(2);
-
-        yield return new WaitForSeconds(2.5f);
-
-        ExperienceApp.End();
-    }
+   
 
     public void TurnoffOBJS()
     {

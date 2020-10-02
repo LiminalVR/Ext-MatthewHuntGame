@@ -25,15 +25,17 @@ public class TestShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (m_Device == null)
         {
             m_Device = VRDevice.Device.PrimaryInputDevice;
             return;
         }
 
-        if (!GameManager.Instance.HasGameStarted) return;
+        if (!GameManager.Instance.HasGameStarted) 
+            return;
+
+        if (Time.timeScale == 0)
+            return;
 
         if (m_Device.GetButtonDown(VRButton.One))
         {
