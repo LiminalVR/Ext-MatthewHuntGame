@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public Vector3 Center2;
     public Vector3 Size3;
     public Vector3 Center3;
-    public GameObject RingPrefab;
     public GameObject Spawner_active1;
     public GameObject Spawner_active2;
     public GameObject GameExperience;
@@ -52,6 +51,8 @@ public class GameManager : MonoBehaviour
     public bool IncreasedDifficulty;
     [Space]
     public float MaxGameTime;
+    public AudioSource AudioSource;
+    public AudioClip EndClip;
     
     private Coroutine GameTimeRoutine;
 
@@ -181,6 +182,17 @@ public class GameManager : MonoBehaviour
 
         IEnumerator routine(float fadeOutTime)
         {
+            RingManager.Instance.CanSpawn = false;
+            Time.timeScale = 1f;
+            //do simulation over effects.
+            AudioSource.clip = EndClip;
+            AudioSource.Play();
+
+            yield return new WaitForEndOfFrame();
+
+            while (AudioSource.isPlaying)
+                yield return new WaitForEndOfFrame();
+
             var elapsedTime = 0f;
             var startingVolume = AudioListener.volume;
 

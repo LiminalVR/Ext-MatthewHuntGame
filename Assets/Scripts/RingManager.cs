@@ -14,14 +14,19 @@ public class RingManager : MonoBehaviour
     public Vector3 MinSpawnDivergence;
     public Vector3 MaxSpawnDivergence;
     public int MaxRings;
+    public bool CanSpawn;
 
     private void Start()
     {
         Instance = this;
+        CanSpawn = true;
     }
 
     public void SpawnRing()
     {
+        if (!CanSpawn)
+            return;
+
         if (RingManager.Instance.RingList.Count > MaxRings)
         {
             return;
