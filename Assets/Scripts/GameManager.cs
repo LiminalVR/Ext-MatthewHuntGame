@@ -45,22 +45,20 @@ public class GameManager : MonoBehaviour
     public Text RingsHit;
     public Text ShotCount;
     public CanvasGroup PanelGroup2;
-    public GameObject ArrowOne;
-    public GameObject ArrowTwo;
     public bool IsGameOver;
     public bool IncreasedDifficulty;
     [Space]
     public float MaxGameTime;
     public AudioSource AudioSource;
     public AudioClip EndClip;
-    
+    public MusicController MusicController;
+
     private Coroutine GameTimeRoutine;
 
     void Start()
     {
         Instance = this;
         Time.timeScale = 0f;
-        QuitTime = 11f;
     }
 
     private IEnumerator GameTimer()
@@ -71,7 +69,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        QuitGame();
+        EndExperience();
     }
 
     public void RingCountUP()
@@ -149,14 +147,18 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndRoutine()
     {
+        IsGameOver = true;
+        RingManager.Instance.CanSpawn = false;
+        RingManager.Instance.KillAllRings();
+        AudioSource.clip = EndClip;
+        AudioSource.Play();
         yield return new WaitForSeconds(QuitTime);
+
+        //do simulation over effects.
 
         this.GetComponent<QuitUIFade>().FadeIn();
 
-        yield return new WaitForSeconds(1);
-        Time.timeScale = 0;
-        GameObject AudioSource = GameObject.Find("Audio Source");
-        AudioSource.GetComponent<AudioSource>().Pause();
+        MusicController.KillMusic(0f, 2f);
 
         Accuracy = ((RingCount / TimesFired) * 100);
         AccuracyText.text = ("Accuracy: " + Accuracy.ToString("f2") + "%");
@@ -166,9 +168,12 @@ public class GameManager : MonoBehaviour
         ShotCount.text = ("Times Fired: " + TimesFired.ToString());
         TurnoffOBJS();
 
-        ArrowOne.SetActive(false);
-        ArrowTwo.SetActive(false);
-        IsGameOver = true;
+        while (AudioSource.isPlaying)
+            yield return new WaitForEndOfFrame();
+
+        yield return new WaitForSeconds(5f);
+
+        QuitGame();
     }
 
     public void QuitGame()
@@ -182,16 +187,8 @@ public class GameManager : MonoBehaviour
 
         IEnumerator routine(float fadeOutTime)
         {
-            RingManager.Instance.CanSpawn = false;
-            Time.timeScale = 1f;
-            //do simulation over effects.
-            AudioSource.clip = EndClip;
-            AudioSource.Play();
-
             yield return new WaitForEndOfFrame();
 
-            while (AudioSource.isPlaying)
-                yield return new WaitForEndOfFrame();
 
             var elapsedTime = 0f;
             var startingVolume = AudioListener.volume;

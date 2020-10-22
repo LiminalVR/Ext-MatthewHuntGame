@@ -4,8 +4,8 @@ using UnityEngine;
 public class RingShrinking : MonoBehaviour
 {
     public GameObject particleSystem;
-    Vector3 MinScale;
-    Vector3 maxscale;
+    public Vector3 MinScale;
+    public Vector3 maxscale;
     bool Reapeatable;
     public float speed = 2f;
     public float duration = 2f;
@@ -37,7 +37,12 @@ public class RingShrinking : MonoBehaviour
             yield return null;
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
     void Update()
     {
         Pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);

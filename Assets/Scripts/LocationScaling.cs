@@ -58,28 +58,6 @@ public class LocationScaling : MonoBehaviour
 
     IEnumerator MoveLocation()
     {
-        while (true)
-        {
-            if (transform.localPosition.y <= -11)
-            {
-                this.GetComponent<AudioSource>().Play();
-                yield return null;
-            }
-
-            if (transform.localPosition.y <= -10)
-            {
-                transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-                Explode.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-                yield return new WaitForEndOfFrame();
-            }
-            else
-            {
-                Explode.SetActive(true);
-                GameManager.Instance.EndExperience();
-                Destroy(gameObject);
-                Destroy(Explode, 3);
-                yield return null;
-            }
-        }
+        yield break;
     }
 }

@@ -8,9 +8,13 @@ public class RandomRingSpawner : MonoBehaviour
     public float CurrentSpawnTime = 0;
     public float DecreaseSpawnInterval = 0;
     public float IncreaseSpawnTimer = 20;
+    public GameManager GameManager;
 
     void Update()
     {
+        if (GameManager.IsGameOver)
+            return;
+
         CurrentSpawnTime += Time.deltaTime;
 
         DecreaseSpawnInterval += Time.deltaTime;

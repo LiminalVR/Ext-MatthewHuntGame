@@ -27,8 +27,9 @@ public class RingManager : MonoBehaviour
         if (!CanSpawn)
             return;
 
-        if (RingManager.Instance.RingList.Count > MaxRings)
+        if (RingList.Count > MaxRings)
         {
+            print("too many rings");
             return;
         }
 
@@ -37,7 +38,7 @@ public class RingManager : MonoBehaviour
 
         var ring = Instantiate(RingPrefab, spawnPos, Quaternion.identity);
 
-        RingManager.Instance.RingList.Add(ring);
+        RingList.Add(ring);
     }
 
     private Vector3 GetSpawnPos(Transform targetPoint)
@@ -53,5 +54,13 @@ public class RingManager : MonoBehaviour
     public void IncreaseRingLimit()
     {
         MaxRings += 10;
+    }
+
+    public void KillAllRings()
+    {
+        for (var i = RingList.Count - 1; i >= 0; i--)
+        {
+            Destroy(RingList[i]);
+        }
     }
 }

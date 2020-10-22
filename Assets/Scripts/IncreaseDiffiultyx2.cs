@@ -8,6 +8,7 @@ public class IncreaseDiffiultyx2 : MonoBehaviour
     public float CurrentSpawnTime = 0;
     public float DecreaseSpawnInterval = 0;
     public float IncreaseSpawnTimer = 20;
+    public GameManager GameManager;
     void Start()
     {
         RingManager.Instance.IncreaseRingLimit();
@@ -15,6 +16,9 @@ public class IncreaseDiffiultyx2 : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.IsGameOver)
+            return;
+
         CurrentSpawnTime += Time.deltaTime;
 
         DecreaseSpawnInterval += Time.deltaTime;

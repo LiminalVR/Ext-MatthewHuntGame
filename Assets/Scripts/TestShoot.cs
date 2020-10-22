@@ -12,6 +12,7 @@ public class TestShoot : MonoBehaviour
     public GameObject Ball;
     //the float which controlls how fast the ball will go forward
     public float Ball_forward_force;
+    public GameManager GameManager;
 
     private IVRInputDevice m_Device;
 
@@ -25,6 +26,9 @@ public class TestShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.IsGameOver)
+            return;
+
         if (m_Device == null)
         {
             m_Device = VRDevice.Device.PrimaryInputDevice;
