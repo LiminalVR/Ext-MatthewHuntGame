@@ -30,8 +30,8 @@ public class LocationScaling : MonoBehaviour
         if (transform.localScale.x >= 3.5 && transform.localScale.y >= 3.5f && transform.localScale.z >= 3.5f)
         {
             StartCoroutine("MoveLocation");
-            GameManager.Instance.GlobaleSpawners.SetActive(false);
-            EndGame();
+            //GameManager.Instance.GlobaleSpawners.SetActive(false);
+            //EndGame();
             OverheadCloser.SetActive(true);
         }
     }

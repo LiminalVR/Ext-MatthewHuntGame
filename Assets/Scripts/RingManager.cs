@@ -60,7 +60,9 @@ public class RingManager : MonoBehaviour
     {
         for (var i = RingList.Count - 1; i >= 0; i--)
         {
-            Destroy(RingList[i]);
+            var ring = RingList[i];
+            RingList.Remove(ring);
+            Destroy(ring);
         }
     }
 }
