@@ -52,13 +52,51 @@ public class GameManager : MonoBehaviour
     public AudioSource AudioSource;
     public AudioClip EndClip;
     public MusicController MusicController;
+    public float FadeInPauseTime;
+    public float FadeInTime;
+    public CompoundScreenFader CompoundScreenFader;
 
     private Coroutine GameTimeRoutine;
 
-    void Start()
+    IEnumerator Start()
     {
         Instance = this;
-        Time.timeScale = 0f;
+        var fading = false;
+        var elapsedTime = 0f;
+        while(!fading)
+        {
+            foreach (var item in CompoundScreenFader.Faders)
+            {
+                if (!item.IsFading)
+                    continue;
+
+                fading = true;
+            }
+
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime > 2f)
+            {
+                fading = true;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return new WaitForEndOfFrame();
+
+        CompoundScreenFader.Faders.ForEach(x => x.StopFade());
+        yield return new WaitForSeconds(FadeInPauseTime);
+        CompoundScreenFader.FadeToClear(FadeInTime);
+    }
+
+    private void ExperienceApp_Initializing()
+    {
+    }
+
+    private void Update()
+    {
+
     }
 
     private IEnumerator GameTimer()
@@ -117,9 +155,10 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        return;
         if (IsGameOver == false)
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             GameExperience.SetActive(false);
 
         }

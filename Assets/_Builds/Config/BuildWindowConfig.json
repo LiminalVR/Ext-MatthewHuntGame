@@ -1,6 +1,6 @@
 {
-    "PreviousScene": "",
+    "PreviousScene": "Assets/Scenes/GameScene.unity",
     "TargetScene": "Assets/Scenes/GameScene.unity",
     "AdditionalReferences": [],
-    "SelectedPlatform": 1
+    "SelectedPlatform": 2
 }

@@ -31,7 +31,7 @@ public class LocationScaling : MonoBehaviour
         {
             StartCoroutine("MoveLocation");
             //GameManager.Instance.GlobaleSpawners.SetActive(false);
-            //EndGame();
+            //EndGame();ay
             OverheadCloser.SetActive(true);
         }
     }
